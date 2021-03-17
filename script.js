@@ -2,7 +2,7 @@ let myLibrary = [];
 
 function Book(title,author, pages, read) {
     this.title = title;
-    this.authot = author;
+    this.author = author;
     this.pages = pages;
     this.read = read;
 }
@@ -23,7 +23,9 @@ const createDeleteButton = (row) => {
     let deleteButton = document.createElement('button')
     deleteButton.classList.add('delete-btn')
     deleteButton.textContent = 'Delete'
-    row.appendChild(deleteButton)
+    let td = document.createElement('td')
+    td.appendChild(deleteButton)
+    row.appendChild(td)
 }
 
 const createNewRow = (arr) => {
@@ -53,9 +55,9 @@ const newBook = () => {
 
 function removeBook(e) {
     if(e.target.className === 'delete-btn') {
-        let bookTitle = e.target.parentNode.firstElementChild.textContent
+        let bookTitle = e.target.parentNode.parentNode.firstElementChild.textContent
         removeBookFromLibrary(bookTitle)
-        table.removeChild(e.target.parentNode)
+        table.removeChild(e.target.parentNode.parentNode)
     }
     console.log(myLibrary)
 }
@@ -65,3 +67,18 @@ table.addEventListener('click', removeBook)
 
 const addBookBtn = document.querySelector('.add-btn')
 addBookBtn.addEventListener('click', newBook)
+
+myLibrary.push( new Book('Moby Dick', 'Herman Melville', 752, 'No'))
+myLibrary.push( new Book('1984', 'George Orwell', 349, 'Yes'))
+myLibrary.push( new Book('Pride and Prejudice', 'Jane Austen', 266, 'No'))
+
+const render = (arr) => {
+    let firstRender = []
+    arr.forEach(book => {
+        firstRender.push(book.title, book.author, book.pages, book.read)
+        createNewRow(firstRender)
+        firstRender = []
+    })
+}
+console.log(myLibrary)
+render(myLibrary)
