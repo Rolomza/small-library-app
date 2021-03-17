@@ -38,9 +38,17 @@ th, td {
 }
 
 #book-pages {
-    width: 15%;
+    width: 10%;
 }
 
 #status {
+    width: 10%;
+}
+
+#options {
     width: 15%;
+}
+
+.state-btn {
+    margin-right: 10px;
 }

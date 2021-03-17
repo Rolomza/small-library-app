@@ -19,11 +19,15 @@ const removeBookFromLibrary = (title) => {
     })
 }
 
-const createDeleteButton = (row) => {
+const createButtons = (row) => {
     let deleteButton = document.createElement('button')
+    let changeStateBtn = document.createElement('button')
     deleteButton.classList.add('delete-btn')
     deleteButton.textContent = 'Delete'
+    changeStateBtn.classList.add('state-btn')
+    changeStateBtn.textContent = 'Change State'
     let td = document.createElement('td')
+    td.appendChild(changeStateBtn)
     td.appendChild(deleteButton)
     row.appendChild(td)
 }
@@ -35,7 +39,7 @@ const createNewRow = (arr) => {
         tableData.textContent = arr[i]
         tableRow.appendChild(tableData)
     }
-    createDeleteButton(tableRow)
+    createButtons(tableRow)
     table.appendChild(tableRow)
 }
 
@@ -53,17 +57,23 @@ const newBook = () => {
     console.log(myLibrary)
 }
 
-function removeBook(e) {
+function options(e) {
     if(e.target.className === 'delete-btn') {
         let bookTitle = e.target.parentNode.parentNode.firstElementChild.textContent
         removeBookFromLibrary(bookTitle)
         table.removeChild(e.target.parentNode.parentNode)
+    } else if(e.target.className === 'state-btn') {
+        let readState = e.target.parentNode.parentNode.childNodes[3]
+        if (readState.textContent === 'Yes') {
+            readState.textContent = 'No'
+        } else {
+            readState.textContent = 'Yes'
+        }
     }
-    console.log(myLibrary)
 }
 
 const table = document.querySelector('.main-table')
-table.addEventListener('click', removeBook)
+table.addEventListener('click', options)
 
 const addBookBtn = document.querySelector('.add-btn')
 addBookBtn.addEventListener('click', newBook)
