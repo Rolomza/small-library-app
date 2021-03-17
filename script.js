@@ -7,31 +7,61 @@ function Book(title,author, pages, read) {
     this.read = read;
 }
 
-
-
-function addBookToLibrary(title, author, pages, read) {
+const addBookToLibrary = (title, author, pages, read) => {
     myLibrary.push(new Book(title, author, pages, read))
 }
 
-function removeBookFromLibrary(title) {
+const removeBookFromLibrary = (title) => {
     myLibrary.filter(book => {
         if(book.title === title) {
-            myLibrary.splice(myLibrary.indexOf(book),1)
-        } else {
-            return 'No existe tal libro'
+            myLibrary.splice(myLibrary.indexOf(book), 1)
         }
     })
 }
 
-console.log(myLibrary)
+const createDeleteButton = (row) => {
+    let deleteButton = document.createElement('button')
+    deleteButton.classList.add('delete-btn')
+    deleteButton.textContent = 'Delete'
+    row.appendChild(deleteButton)
+}
 
-addBookToLibrary('Job', 'Desconocido', 31, true)
-addBookToLibrary('Genesis', 'Moises', 54, true)
-addBookToLibrary('Apocalipsis', 'Juan', 25, false)
+const createNewRow = (arr) => {
+    let tableRow = document.createElement('tr')
+    for(let i = 0; i < 4; i++) {
+        let tableData = document.createElement('td')
+        tableData.textContent = arr[i]
+        tableRow.appendChild(tableData)
+    }
+    createDeleteButton(tableRow)
+    table.appendChild(tableRow)
+}
 
+const newBook = () => {
+    let inputArr = []
+    inputTitle = prompt('Title:')
+    inputAuthor = prompt('Author:')
+    inputPages = prompt('Pages number:')
+    inputRead = prompt('Did you read it?')
+    inputArr.push(inputTitle,inputAuthor,inputPages,inputRead)
+    console.log(inputArr)
+    addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead)
 
-console.log(myLibrary)
+    createNewRow(inputArr)
+    console.log(myLibrary)
+}
 
-removeBookFromLibrary('Genesis')
+function removeBook(e) {
+    if(e.target.className === 'delete-btn') {
+        let bookTitle = e.target.parentNode.firstElementChild.textContent
+        removeBookFromLibrary(bookTitle)
+        table.removeChild(e.target.parentNode)
+    }
+    console.log(myLibrary)
+}
 
-console.log(myLibrary)
+const table = document.querySelector('.main-table')
+table.addEventListener('click', removeBook)
+
+const addBookBtn = document.querySelector('.add-btn')
+addBookBtn.addEventListener('click', newBook)
