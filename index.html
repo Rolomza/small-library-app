@@ -28,11 +28,11 @@
         <div class="modal">
             <h2>Add New Book</h2>
                 <label for="name">Title:</label>
-                <input type="text" name="title" id="title">
+                <input type="text" name="title" id="title" required>
                 <label for="email">Author:</label>
-                <input type="text" name="author" id="author-form">
+                <input type="text" name="author" id="author-form" required>
                 <label for="pages">Pages:</label>
-                <input type="number" name="pages" id="pages-form">
+                <input type="number" name="pages" id="pages-form" required>
                 <label for="state">Did you read it?</label>
                 <div class="radio-btns">
                     <label for="read">Yes</label>
@@ -40,7 +40,6 @@
                     <label for="read">No</label>
                     <input type="radio" name="read" id="no" value="No">
                 </div>
-               
                 <button class="add-btn" type="submit">Add</button>
                 <span class="modal-close">X</span>
         </div>

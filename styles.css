@@ -2,7 +2,7 @@ body {
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #7c97a3;
+    background-color: #dfe6e9;
     align-items: center;
 }
 
@@ -24,10 +24,12 @@ body {
 .delete-btn, .state-btn {
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
-    background-color: #2980b9;
     color: white;
     border: none;
     font-weight: 500;
+    border-radius: 10%;
+    padding: 10px 15px;
+    margin: 5px;
 }
 
 .delete-btn {
@@ -38,14 +40,10 @@ body {
     width: 100%;
 }
 
-tbody {
-    border-bottom: 1px solid #ddd;
-}
-
 th, td {
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid rgb(108, 108, 108);
 }
 
 #book-pages {
@@ -61,6 +59,7 @@ th, td {
 }
 
 .state-btn {
+    background-color:steelblue;
     margin-right: 10px;
 }
 
@@ -97,18 +96,24 @@ th, td {
     border-radius: 5%;
 }
 
+h2 {
+    margin: 5px;
+}
+
+
 label {
     display: inline;
 }
 
 .modal-btn {
     padding: 10px 30px;
-    background-color: #2980b9;
-    color: white;
+    background-color: #3ab02b;
+    color: rgb(0, 0, 0);
     border: none;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     outline: none;
+    border-radius: 10%;
 }
 
 .modal-close {
@@ -125,3 +130,7 @@ label {
     justify-content: space-between
 }
 
+td {
+    font-size: 15px;
+    font-weight: 500;
+}
