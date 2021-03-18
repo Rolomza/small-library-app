@@ -43,12 +43,8 @@ const createNewRow = (arr) => {
     table.appendChild(tableRow)
 }
 
-const newBook = () => {
+const newBook = (inputTitle, inputAuthor, inputPages, inputRead) => {
     let inputArr = []
-    inputTitle = prompt('Title:')
-    inputAuthor = prompt('Author:')
-    inputPages = prompt('Pages number:')
-    inputRead = prompt('Did you read it?')
     inputArr.push(inputTitle,inputAuthor,inputPages,inputRead)
     console.log(inputArr)
     addBookToLibrary(inputTitle, inputAuthor, inputPages, inputRead)
@@ -72,12 +68,26 @@ function options(e) {
     }
 }
 
+const render = (arr) => {
+    let firstRender = []
+    arr.forEach(book => {
+        firstRender.push(book.title, book.author, book.pages, book.read)
+        createNewRow(firstRender)
+        firstRender = []
+    })
+}
+
+const clearForm = () => {
+   
+}
+
 const table = document.querySelector('.main-table')
 table.addEventListener('click', options)
 
 const modalBtn = document.querySelector('.modal-btn')
 const modalBg = document.querySelector('.modal-bg')
 const modalClose = document.querySelector('.modal-close')
+const addBookBtn = document.querySelector('.add-btn')
 
 modalBtn.addEventListener('click', _ => {
     modalBg.classList.add('bg-active')
@@ -87,20 +97,20 @@ modalClose.addEventListener('click', _ => {
     modalBg.classList.remove('bg-active')
 })
 
-// const addBookBtn = document.querySelector('.add-btn')
-// addBookBtn.addEventListener('click', newBook)
+addBookBtn.addEventListener('click', () => {
+    const titleInput = document.getElementById('title').value
+    const authorInput = document.getElementById('author-form').value
+    const pagesInput = document.getElementById('pages-form').value
+    const readInput = document.querySelector('input[name=read]').value
+    newBook(titleInput, authorInput, pagesInput, readInput)
+    modalBg.classList.remove('bg-active')
+    titleInput = ""
+    authorInput = ""
+    pagesInput = ""
+})
 
 myLibrary.push( new Book('Moby Dick', 'Herman Melville', 752, 'No'))
 myLibrary.push( new Book('1984', 'George Orwell', 349, 'Yes'))
 myLibrary.push( new Book('Pride and Prejudice', 'Jane Austen', 266, 'No'))
 
-const render = (arr) => {
-    let firstRender = []
-    arr.forEach(book => {
-        firstRender.push(book.title, book.author, book.pages, book.read)
-        createNewRow(firstRender)
-        firstRender = []
-    })
-}
-console.log(myLibrary)
 render(myLibrary)

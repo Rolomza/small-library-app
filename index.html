@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="main-container">
-        <h1 id="title">My Online Library</h1>
+        <h1 id="page-title">My Online Library</h1>
         <button class="btn modal-btn">New Book</button>
         <table class="main-table">
         <tr>
@@ -27,16 +27,22 @@
     <div class="modal-bg">
         <div class="modal">
             <h2>Add New Book</h2>
-            <label for="name">Title: </label>
-            <input type="text" name="title">
-            <label for="email">Author: </label>
-            <input type="text" name="author">
-            <label for="pages">Pages:</label>
-            <input type="number" name="pages">
-            <label for="state">Did you read it?</label>
-            <input type="text" name="state">
-            <button>Add</button>
-            <span class="modal-close">X</span>
+                <label for="name">Title:</label>
+                <input type="text" name="title" id="title">
+                <label for="email">Author:</label>
+                <input type="text" name="author" id="author-form">
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages-form">
+                <label for="state">Did you read it?</label>
+                <div class="radio-btns">
+                    <label for="read">Yes</label>
+                    <input type="radio" name="read" id="yes" value="Yes">
+                    <label for="read">No</label>
+                    <input type="radio" name="read" id="no" value="No">
+                </div>
+               
+                <button class="add-btn" type="submit">Add</button>
+                <span class="modal-close">X</span>
         </div>
     </div>
     
