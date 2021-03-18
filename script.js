@@ -75,8 +75,20 @@ function options(e) {
 const table = document.querySelector('.main-table')
 table.addEventListener('click', options)
 
-const addBookBtn = document.querySelector('.add-btn')
-addBookBtn.addEventListener('click', newBook)
+const modalBtn = document.querySelector('.modal-btn')
+const modalBg = document.querySelector('.modal-bg')
+const modalClose = document.querySelector('.modal-close')
+
+modalBtn.addEventListener('click', _ => {
+    modalBg.classList.add('bg-active')
+})
+
+modalClose.addEventListener('click', _ => {
+    modalBg.classList.remove('bg-active')
+})
+
+// const addBookBtn = document.querySelector('.add-btn')
+// addBookBtn.addEventListener('click', newBook)
 
 myLibrary.push( new Book('Moby Dick', 'Herman Melville', 752, 'No'))
 myLibrary.push( new Book('1984', 'George Orwell', 349, 'Yes'))

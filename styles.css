@@ -2,7 +2,7 @@ body {
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #b2bec3;
+    background-color: #7c97a3;
     align-items: center;
 }
 
@@ -20,8 +20,18 @@ body {
     margin: 30px;
 }
 
-.add-btn {
-    margin: 30px;
+
+.delete-btn, .state-btn {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    font-weight: 500;
+}
+
+.delete-btn {
+    background-color: brown;
 }
 
 .main-table {
@@ -66,9 +76,16 @@ th, td {
     align-items: center;
     visibility: hidden;
     opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
 }
 
 .modal {
+    position: relative;
     font-family: 'Montserrat', sans-serif;
     background-color: white;
     width: 30%;
@@ -85,5 +102,14 @@ th, td {
     color: white;
     border: none;
     font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
     cursor: pointer;
 }
