@@ -89,6 +89,7 @@ const modalBg = document.querySelector('.modal-bg')
 const modalClose = document.querySelector('.modal-close')
 const addBookBtn = document.querySelector('.add-btn')
 const warning = document.getElementById('warning')
+const form = document.querySelector('form')
 
 modalBtn.addEventListener('click', _ => {
     modalBg.classList.add('bg-active')
@@ -99,17 +100,17 @@ modalClose.addEventListener('click', _ => {
 })
 
 addBookBtn.addEventListener('click', () => {
-    const titleInput = document.getElementById('title').value
-    const authorInput = document.getElementById('author-form').value
-    const pagesInput = document.getElementById('pages-form').value
-    const readInput = document.querySelector('input[name=read]').value
+    let titleInput = document.getElementById('title').value
+    let authorInput = document.getElementById('author-form').value
+    let pagesInput = document.getElementById('pages-form').value
+    let readInput = document.querySelector('input[name=read]:checked').value
+    console.log(readInput)
     if(titleInput.length && authorInput.length && pagesInput.length && readInput.length) {
         newBook(titleInput, authorInput, pagesInput, readInput)
         modalBg.classList.remove('bg-active')
-        titleInput = ""
-        authorInput = ""
-        pagesInput = ""
+        form.reset()
     }
+    
 })
 
 myLibrary.push( new Book('Moby Dick', 'Herman Melville', 752, 'No'))
