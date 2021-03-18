@@ -2,7 +2,7 @@ body {
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #dfe6e9;
+    background-color: #192a56;
     align-items: center;
 }
 
@@ -17,6 +17,9 @@ body {
 }
 
 #page-title {
+    font-family: 'Fjalla One', sans-serif;
+    color: white;
+    font-size: 50px;
     margin: 30px;
 }
 
@@ -37,14 +40,29 @@ body {
 }
 
 .main-table {
+    margin-top: 40px;
     width: 100%;
+    background-color: #dcdde1;
 }
 
 th, td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
     border-bottom: 1px solid rgb(108, 108, 108);
 }
+
+td {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+th {
+    font-family: 'Fjalla', sans-serif;
+    background-color: #95afc0;
+    font-size: 20px;
+}
+
+
 
 #book-pages {
     width: 10%;
@@ -52,6 +70,10 @@ th, td {
 
 #status {
     width: 10%;
+}
+
+#status td {
+    background-color: green;
 }
 
 #options {
@@ -121,6 +143,7 @@ input {
     color: rgb(0, 0, 0);
     border: none;
     font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
     cursor: pointer;
     outline: none;
     border-radius: 10%;
@@ -140,9 +163,8 @@ input {
     justify-content: space-around;
 }
 
-td {
-    font-size: 15px;
-    font-weight: 500;
-}
+
+
+
 
 
