@@ -9,7 +9,6 @@ class Book {
     }
 }
 
-
 const addBookToLibrary = (title, author, pages, read) => {
     myLibrary.push(new Book(title, author, pages, read))
 }
